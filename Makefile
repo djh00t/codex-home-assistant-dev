@@ -36,3 +36,4 @@ validate-scripts:
 	$(PYTHON) scripts/generate_deploy_plan.py . --host root@example-ha >/tmp/codex-ha-dev-deploy-plan.md
 	$(PYTHON) scripts/cache_bust_checklist.py . >/tmp/codex-ha-dev-cache-checklist.md
 	$(PYTHON) scripts/check_release_readiness.py . >/tmp/codex-ha-dev-release-readiness.md
+	$(PYTHON) scripts/run_ha_core_module.py underdog_ha.ha_quality_gate --print-command --host root@example-ha --remote-repo /config/example/repo --container-name homeassistant -- --polls 2 >/tmp/codex-ha-dev-ha-core-module.txt

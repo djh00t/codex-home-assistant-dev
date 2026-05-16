@@ -20,8 +20,14 @@ python <plugin-root>/scripts/generate_deploy_plan.py . --host root@172.30.55.10
 
 5. Include backup, sync, reload/restart, cache-bust, quality-gate, and rollback commands.
 6. If the user approves applying the plan, take the HA backup first and record the backup slug/id.
-7. After restart, wait for active Supervisor restart jobs to clear before judging the quality gate.
-8. Verify live artifacts directly. For split repos, validate both support code and `custom_components/<domain>`.
+7. When the verification step needs repo code to run inside the Home Assistant Core runtime, use:
+
+```bash
+python <plugin-root>/scripts/run_ha_core_module.py underdog_ha.ha_quality_gate --host root@172.30.55.10 --remote-repo /config/underdog_ha_shadow/repo -- --polls 2 --interval-seconds 30
+```
+
+8. After restart, wait for active Supervisor restart jobs to clear before judging the quality gate.
+9. Verify live artifacts directly. For split repos, validate both support code and `custom_components/<domain>`.
 
 ## Guardrails
 
@@ -29,3 +35,4 @@ python <plugin-root>/scripts/generate_deploy_plan.py . --host root@172.30.55.10
 - Prefer targeted reloads when safe; restart Core for Python integration code or manifest changes.
 - Treat immediate `home_assistant_core_restart` warnings as pending restart evidence until a re-poll confirms persistence.
 - Separate daily catch-up and historical backfill in status reports.
+- Do not assume the SSH add-on shell can run Python from the synced repo; use the HA Core module runner for repo-local module execution.

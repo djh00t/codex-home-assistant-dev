@@ -5,6 +5,7 @@ Codex plugin for developing, validating, deploying, packaging, and releasing Hom
 The plugin ID is `home-assistant-dev`. It provides skills for:
 
 - Home Assistant development loops
+- Home Assistant Core runtime execution for repo Python modules
 - backup-first live deploy planning
 - Lovelace and frontend cache busting
 - local and live quality gates
