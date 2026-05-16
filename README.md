@@ -22,10 +22,26 @@ The plugin ID is `home-assistant-dev`. It provides skills for:
 
 ### Home-local install
 
-Install the plugin into the home-local marketplace layout that Codex expects:
+Clone the repository into a stable local path that you want Codex to load from, for example:
+
+```bash
+mkdir -p ~/src/github.com_local/djh00t
+git clone https://github.com/djh00t/codex-home-assistant-dev.git \
+  ~/src/github.com_local/djh00t/codex-home-assistant-dev
+cd ~/src/github.com_local/djh00t/codex-home-assistant-dev
+```
+
+Install the plugin into the home-local marketplace layout that Codex expects by linking that checkout into the local plugin bundle directory:
 
 ```bash
 mkdir -p ~/.agents/plugins/plugins
+ln -s "$(pwd)" ~/.agents/plugins/plugins/home-assistant-dev
+```
+
+If the symlink already exists and points somewhere stale, replace it first:
+
+```bash
+rm -f ~/.agents/plugins/plugins/home-assistant-dev
 ln -s "$(pwd)" ~/.agents/plugins/plugins/home-assistant-dev
 ```
 
