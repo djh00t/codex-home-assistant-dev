@@ -1,0 +1,5 @@
+interface:
+  display_name: "HA Core Runtime"
+  short_description: "Run repo modules inside Home Assistant Core"
+  brand_color: "#41BDF5"
+  default_prompt: "Use $ha-core-runtime to run a repo Python module inside the Home Assistant Core runtime."

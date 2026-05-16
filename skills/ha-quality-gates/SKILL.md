@@ -20,6 +20,7 @@ Use local gates before deploy and live gates after deploy.
 2. Check HA logs, Supervisor jobs, disk usage, memory, and deployed artifact state.
 3. Baseline existing log warnings separately from new findings.
 4. Re-poll after Core restart before treating active restart jobs as failures.
+5. If the quality gate is a repo Python module, run it inside the Home Assistant Core runtime rather than the SSH add-on shell.
 
 ## Restart Warning Table
 
@@ -33,4 +34,5 @@ Use local gates before deploy and live gates after deploy.
 ```bash
 python -m underdog_ha.ha_quality_gate --ssh-target root@172.30.55.10 --polls 2 --interval-seconds 30
 rtk .venv/bin/python -m underdog_ha.ha_quality_gate --ssh-target root@172.30.55.10 --polls 2 --interval-seconds 30
+python <plugin-root>/scripts/run_ha_core_module.py underdog_ha.ha_quality_gate --host root@172.30.55.10 --remote-repo /config/underdog_ha_shadow/repo -- --polls 2 --interval-seconds 30
 ```

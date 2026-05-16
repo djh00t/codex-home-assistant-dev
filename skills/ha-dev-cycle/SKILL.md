@@ -16,7 +16,13 @@ Start with repo classification, then keep the loop short and evidence-backed.
 5. Add or update BDD `.feature` coverage for user-visible or behavior-changing features.
 6. Keep local changes scoped and reversible, especially in dirty worktrees.
 7. For UI/dashboard/card work, plan cache busting and browser/HA UI verification before claiming the user will see the change.
-8. For live deploy, switch to `ha-live-deploy`; do not write to HA from this skill alone.
+8. If a repo module must run inside the Home Assistant Core runtime, use:
+
+```bash
+python <plugin-root>/scripts/run_ha_core_module.py underdog_ha.ha_quality_gate --host root@172.30.55.10 -- --polls 2 --interval-seconds 30
+```
+
+9. For live deploy, switch to `ha-live-deploy`; do not write to HA from this skill alone.
 
 ## Integration Review Checks
 
@@ -36,4 +42,5 @@ Start with repo classification, then keep the loop short and evidence-backed.
 ```bash
 python <plugin-root>/scripts/classify_ha_repo.py .
 make check
+python <plugin-root>/scripts/run_ha_core_module.py underdog_ha.ha_quality_gate --host root@172.30.55.10 -- --polls 2 --interval-seconds 30
 ```

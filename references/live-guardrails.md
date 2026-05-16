@@ -13,9 +13,10 @@ Live writes are plan-then-apply. Generate the exact backup, sync, reload/restart
 3. Generate a backup command and require the resulting backup slug/id to be recorded before any write.
 4. Sync only the needed paths.
 5. Prefer targeted reloads when Home Assistant supports them; use Core restart when Python integration code or manifest metadata changes.
-6. After restart, wait for Supervisor jobs to clear before judging health.
-7. Run HA quality gates and report baseline log issues separately from new findings.
-8. Verify the deployed tree or live artifact, not just the local checkout.
+6. When repo Python must execute against the live HA runtime, run it inside the Home Assistant Core container instead of the SSH add-on shell.
+7. After restart, wait for Supervisor jobs to clear before judging health.
+8. Run HA quality gates and report baseline log issues separately from new findings.
+9. Verify the deployed tree or live artifact, not just the local checkout.
 
 ## Restart Warning Interpretation
 
@@ -32,6 +33,7 @@ Live writes are plan-then-apply. Generate the exact backup, sync, reload/restart
 - Do not confuse daily rolling collection with complete historical backfill.
 - Do not claim a visual dashboard/card change landed until cache-busting and UI verification are complete.
 - Do not use destructive git or HA cleanup commands as rollback unless the user explicitly asks.
+- Do not assume the SSH add-on shell can execute repo Python; route repo-module execution through HA Core.
 
 ## UnderDog HA Examples
 
@@ -41,3 +43,4 @@ Live writes are plan-then-apply. Generate the exact backup, sync, reload/restart
 - AEMO actuals marker: `/config/underdog_ha_shadow/weather/aemo-rooftop-pv-actual.jsonl.maintenance.json`
 - Known quality gate: `python -m underdog_ha.ha_quality_gate --ssh-target root@172.30.55.10 --polls 2 --interval-seconds 30`
 - Repo-local variant used on this host: `rtk .venv/bin/python -m underdog_ha.ha_quality_gate --ssh-target root@172.30.55.10 --polls 2 --interval-seconds 30`
+- HA Core runtime variant: `python <plugin-root>/scripts/run_ha_core_module.py underdog_ha.ha_quality_gate --host root@172.30.55.10 --remote-repo /config/underdog_ha_shadow/repo -- --polls 2 --interval-seconds 30`
