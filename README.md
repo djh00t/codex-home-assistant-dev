@@ -25,10 +25,10 @@ The plugin ID is `home-assistant-dev`. It provides skills for:
 Clone the repository into a stable local path that you want Codex to load from, for example:
 
 ```bash
-mkdir -p ~/src/github.com_local/djh00t
+mkdir -p ./plugins
 git clone https://github.com/djh00t/codex-home-assistant-dev.git \
-  ~/src/github.com_local/djh00t/codex-home-assistant-dev
-cd ~/src/github.com_local/djh00t/codex-home-assistant-dev
+  ./plugins/codex-home-assistant-dev
+cd ./plugins/codex-home-assistant-dev
 ```
 
 Install the plugin into the home-local marketplace layout that Codex expects by linking that checkout into the local plugin bundle directory:
