@@ -1,0 +1,5 @@
+interface:
+  display_name: "HA Cache Busting"
+  short_description: "Make Home Assistant frontend changes visible"
+  brand_color: "#41BDF5"
+  default_prompt: "Use $ha-cache-busting to verify a Home Assistant dashboard or card update."

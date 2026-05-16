@@ -1,0 +1,41 @@
+{
+  "name": "home-assistant-dev",
+  "version": "0.1.0",
+  "description": "Codex workflows for developing, deploying, testing, packaging, and releasing Home Assistant projects.",
+  "author": {
+    "name": "DJH",
+    "email": "djh@example.com",
+    "url": "https://github.com/djh00t"
+  },
+  "homepage": "https://github.com/djh00t/codex-home-assistant-dev",
+  "repository": "https://github.com/djh00t/codex-home-assistant-dev",
+  "license": "MIT",
+  "keywords": [
+    "home-assistant",
+    "custom-components",
+    "lovelace",
+    "hacs",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Home Assistant Dev",
+    "shortDescription": "Develop, deploy, test, and release Home Assistant projects.",
+    "longDescription": "Home Assistant development workflows for custom integrations, dashboards, cards, packages, automations, blueprints, HACS releases, add-ons, live deploy planning, cache invalidation, quality gates, and self-improving runbooks.",
+    "developerName": "DJH",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/djh00t/codex-home-assistant-dev",
+    "privacyPolicyURL": "https://github.com/djh00t/codex-home-assistant-dev",
+    "termsOfServiceURL": "https://github.com/djh00t/codex-home-assistant-dev",
+    "defaultPrompt": [
+      "Plan and validate a Home Assistant integration change.",
+      "Generate a backup-first Home Assistant deploy plan.",
+      "Prepare a HACS and GitHub release checklist."
+    ],
+    "brandColor": "#41BDF5"
+  }
+}

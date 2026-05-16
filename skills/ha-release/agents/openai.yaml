@@ -1,0 +1,5 @@
+interface:
+  display_name: "HA Release"
+  short_description: "Prepare HACS and GitHub HA releases"
+  brand_color: "#41BDF5"
+  default_prompt: "Use $ha-release to prepare a HACS and GitHub release."

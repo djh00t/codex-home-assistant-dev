@@ -1,0 +1,5 @@
+interface:
+  display_name: "HA Quality Gates"
+  short_description: "Validate local and live HA health checks"
+  brand_color: "#41BDF5"
+  default_prompt: "Use $ha-quality-gates to validate a Home Assistant change before release."

@@ -1,0 +1,5 @@
+interface:
+  display_name: "HA Self Improve"
+  short_description: "Capture HA lessons as reviewable updates"
+  brand_color: "#41BDF5"
+  default_prompt: "Use $ha-self-improve to capture a Home Assistant lesson as a plugin patch."

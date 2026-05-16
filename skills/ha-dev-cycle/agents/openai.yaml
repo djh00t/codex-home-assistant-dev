@@ -1,0 +1,5 @@
+interface:
+  display_name: "HA Dev Cycle"
+  short_description: "Guide Home Assistant edit-test-deploy loops"
+  brand_color: "#41BDF5"
+  default_prompt: "Use $ha-dev-cycle to plan and validate a Home Assistant project change."

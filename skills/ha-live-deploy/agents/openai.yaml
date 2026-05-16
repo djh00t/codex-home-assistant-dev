@@ -1,0 +1,5 @@
+interface:
+  display_name: "HA Live Deploy"
+  short_description: "Plan backup-first Home Assistant deploys"
+  brand_color: "#41BDF5"
+  default_prompt: "Use $ha-live-deploy to generate a backup-first Home Assistant deploy plan."
